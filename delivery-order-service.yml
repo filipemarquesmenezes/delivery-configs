@@ -15,7 +15,6 @@ eureka:
 
 spring:
     datasource:
-        data: classpath:/sql/data.sql
         driver-class-name: org.h2.Driver
         password:
         platform: h2
