@@ -15,17 +15,22 @@ eureka:
 
 spring:
     datasource:
-        driver-class-name: com.mysql.jdbc.Driver
-        password: '1234'
-        platform: mysql
-        url: jdbc:mysql://localhost/delivery-order?verifyServerCertificate=false&useSSL=false&requireSSL=false
-        username: root
+        data: classpath:/sql/data.sql
+        driver-class-name: org.h2.Driver
+        password:
+        platform: h2
+        schema: classpath:/sql/schema.sql
+        url: jdbc:h2:mem:delivery-order
+        username: sa
     jpa:
-        database-platform: org.hibernate.dialect.MySQLDialect
+        database-platform: org.hibernate.dialect.H2Dialect
         generate-ddl: false
         hibernate:
-            ddl-auto: create
+            ddl-auto: none
         show-sql: true
+    h2:
+        console:
+            enabled: true
 
 authserver:
   hostname: http://localhost:9092
